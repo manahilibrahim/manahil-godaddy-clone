@@ -1,0 +1,1387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manahil GoDaddy - Domain Names, Websites & Online Marketing Tools</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #1bbc9b;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #1bbc9b;
+        }
+
+        /* Cart Icon */
+        .cart-icon {
+            position: relative;
+            cursor: pointer;
+            font-size: 1.8rem;
+            color: #1bbc9b;
+            padding: 0.5rem;
+            border-radius: 50%;
+            transition: background 0.3s;
+        }
+
+        .cart-icon:hover {
+            background: #f0f0f0;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: #e74c3c;
+            color: white;
+            border-radius: 50%;
+            width: 22px;
+            height: 22px;
+            font-size: 0.8rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1bbc9b 0%, #16a085 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        /* Search Section */
+        .search-section {
+            background: white;
+            padding: 3rem 0;
+        }
+
+        .search-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .search-container h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .search-container p {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+
+        .search-form {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .search-input {
+            flex: 1;
+            min-width: 300px;
+            padding: 1rem;
+            font-size: 1.1rem;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .search-input:focus {
+            border-color: #1bbc9b;
+        }
+
+        .search-btn {
+            padding: 1rem 2rem;
+            background: #1bbc9b;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .search-btn:hover {
+            background: #16a085;
+        }
+
+        /* Results Section */
+        .results-section {
+            background: #f8f9fa;
+            padding: 3rem 0;
+            min-height: 400px;
+        }
+
+        .results-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .results-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .results-header h3 {
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .domain-grid {
+            display: grid;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .domain-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .domain-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+
+        .domain-info {
+            flex: 1;
+        }
+
+        .domain-name {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .domain-extension {
+            color: #1bbc9b;
+            font-weight: 600;
+        }
+
+        .domain-description {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .domain-pricing {
+            text-align: right;
+            margin: 0 2rem;
+        }
+
+        .domain-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1bbc9b;
+            margin-bottom: 0.5rem;
+        }
+
+        .domain-period {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .add-to-cart-btn {
+            background: #1bbc9b;
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1rem;
+        }
+
+        .add-to-cart-btn:hover {
+            background: #16a085;
+            transform: scale(1.05);
+        }
+
+        .add-to-cart-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .added-to-cart {
+            background: #27ae60 !important;
+        }
+
+        /* Loading */
+        .loading {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #1bbc9b;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1rem;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Cart Sidebar */
+        .cart-sidebar {
+            position: fixed;
+            top: 0;
+            right: -450px;
+            width: 450px;
+            height: 100vh;
+            background: white;
+            box-shadow: -2px 0 15px rgba(0,0,0,0.2);
+            transition: right 0.3s ease;
+            z-index: 1000;
+            overflow-y: auto;
+        }
+
+        .cart-sidebar.open {
+            right: 0;
+        }
+
+        .cart-header {
+            padding: 1.5rem;
+            border-bottom: 2px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #f8f9fa;
+        }
+
+        .cart-header h3 {
+            margin: 0;
+            color: #333;
+            font-size: 1.5rem;
+        }
+
+        .close-cart {
+            background: none;
+            border: none;
+            font-size: 2rem;
+            cursor: pointer;
+            color: #666;
+            padding: 0.5rem;
+            border-radius: 50%;
+            transition: background 0.3s;
+        }
+
+        .close-cart:hover {
+            background: #e0e0e0;
+        }
+
+        .cart-items {
+            padding: 1rem;
+            max-height: 60vh;
+            overflow-y: auto;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem;
+            border-bottom: 1px solid #eee;
+            background: #f9f9f9;
+            margin-bottom: 1rem;
+            border-radius: 8px;
+        }
+
+        .cart-item-info h4 {
+            margin: 0 0 0.5rem 0;
+            color: #333;
+            font-size: 1.2rem;
+        }
+
+        .cart-item-price {
+            font-weight: bold;
+            color: #1bbc9b;
+            font-size: 1.1rem;
+        }
+
+        .remove-item {
+            background: #e74c3c;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+        }
+
+        .remove-item:hover {
+            background: #c0392b;
+        }
+
+        .cart-total {
+            padding: 1.5rem;
+            border-top: 2px solid #eee;
+            background: #f8f9fa;
+        }
+
+        .total-amount {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .checkout-btn {
+            width: 100%;
+            padding: 1.2rem;
+            background: #1bbc9b;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .checkout-btn:hover {
+            background: #16a085;
+        }
+
+        .checkout-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+
+        /* Payment Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+        }
+
+        .payment-modal {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            width: 90%;
+            max-width: 600px;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .modal-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #eee;
+        }
+
+        .modal-header h2 {
+            color: #333;
+            margin-bottom: 0.5rem;
+            font-size: 2rem;
+        }
+
+        .order-summary {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1.5rem 0;
+            border: 1px solid #e0e0e0;
+        }
+
+        .order-summary h4 {
+            margin-bottom: 1rem;
+            color: #333;
+            font-size: 1.3rem;
+        }
+
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.8rem;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .summary-item:last-child {
+            border-bottom: none;
+        }
+
+        .summary-total {
+            display: flex;
+            justify-content: space-between;
+            font-weight: bold;
+            font-size: 1.4rem;
+            color: #333;
+            border-top: 2px solid #1bbc9b;
+            padding-top: 1rem;
+            margin-top: 1rem;
+        }
+
+        .payment-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #333;
+            font-size: 1rem;
+        }
+
+        .form-group input,
+        .form-group select {
+            padding: 1rem;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #1bbc9b;
+            box-shadow: 0 0 0 3px rgba(27, 188, 155, 0.1);
+        }
+
+        .form-row {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .form-row .form-group {
+            flex: 1;
+        }
+
+        .payment-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .cancel-btn {
+            flex: 1;
+            padding: 1rem;
+            background: #6c757d;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .cancel-btn:hover {
+            background: #5a6268;
+        }
+
+        .pay-btn {
+            flex: 2;
+            padding: 1rem;
+            background: #1bbc9b;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .pay-btn:hover {
+            background: #16a085;
+        }
+
+        .processing {
+            text-align: center;
+            padding: 3rem;
+        }
+
+        .processing .spinner {
+            margin: 0 auto 1.5rem;
+        }
+
+        .processing h3 {
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .empty-cart {
+            text-align: center;
+            padding: 3rem;
+            color: #666;
+        }
+
+        .empty-cart h3 {
+            margin-bottom: 1rem;
+            color: #999;
+        }
+
+        /* Success Message */
+        .success-message {
+            background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+            color: #155724;
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+            border: 2px solid #c3e6cb;
+            text-align: center;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .success-message h3 {
+            margin-bottom: 1rem;
+            color: #155724;
+        }
+
+        /* Notification */
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #27ae60;
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            z-index: 3000;
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        /* Features Section */
+        .features {
+            padding: 4rem 0;
+            background: white;
+        }
+
+        .features h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #333;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .feature-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: #1bbc9b;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section ul li a {
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section ul li a:hover {
+            color: #1bbc9b;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #34495e;
+            color: #bdc3c7;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .search-form {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .search-input {
+                min-width: 100%;
+            }
+
+            .domain-card {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+
+            .domain-pricing {
+                margin: 0;
+            }
+
+            .cart-sidebar {
+                width: 100%;
+                right: -100%;
+            }
+            
+            .payment-modal {
+                width: 95%;
+                padding: 1rem;
+            }
+            
+            .form-row {
+                flex-direction: column;
+            }
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <div class="logo">Manahil GoDaddy</div>
+            <ul class="nav-links">
+                <li><a href="#domains">Domains</a></li>
+                <li><a href="#hosting">Hosting</a></li>
+                <li><a href="#websites">Websites</a></li>
+                <li><a href="#email">Email</a></li>
+                <li><a href="#support">Support</a></li>
+            </ul>
+            <div class="cart-icon" onclick="toggleCart()">
+                🛒
+                <span class="cart-count" id="cartCount">0</span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Find Your Perfect Domain</h1>
+            <p>Get your business online with the perfect domain name. Search millions of available domains.</p>
+        </div>
+    </section>
+
+    <!-- Search Section -->
+    <section class="search-section">
+        <div class="search-container">
+            <h2>Start Your Search</h2>
+            <p>Enter the domain name you want and we'll check its availability</p>
+            <form class="search-form" id="searchForm">
+                <input type="text" class="search-input" id="domainInput" placeholder="Enter domain name (e.g., mybusiness)" required>
+                <button type="submit" class="search-btn">Search Domains</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section class="results-section hidden" id="resultsSection">
+        <div class="results-container">
+            <div class="results-header">
+                <h3 id="resultsTitle">Available Domains</h3>
+                <p id="resultsSubtitle">Choose from these available options</p>
+            </div>
+            
+            <div class="loading hidden" id="loadingSpinner">
+                <div class="spinner"></div>
+                <p>Searching for available domains...</p>
+            </div>
+
+            <div id="successMessage"></div>
+            <div class="domain-grid" id="domainResults"></div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2>Why Choose Manahil GoDaddy?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🌐</div>
+                    <h3>Huge Selection</h3>
+                    <p>Choose from hundreds of domain extensions to find the perfect match for your business or personal brand.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Secure & Reliable</h3>
+                    <p>Your domains are protected with advanced security features and backed by our reliable infrastructure.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💬</div>
+                    <h3>24/7 Support</h3>
+                    <p>Get help whenever you need it with our round-the-clock customer support team ready to assist you.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Easy Management</h3>
+                    <p>Manage all your domains from one simple dashboard with intuitive tools and controls.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💰</div>
+                    <p>Get the best value for your money with our competitive pricing and special offers.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🚀</div>
+                    <h3>Fast Setup</h3>
+                    <p>Get your domain up and running quickly with our streamlined registration process.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Products</h3>
+                    <ul>
+                        <li><a href="#">Domain Names</a></li>
+                        <li><a href="#">Web Hosting</a></li>
+                        <li><a href="#">Website Builder</a></li>
+                        <li><a href="#">Email Marketing</a></li>
+                        <li><a href="#">SSL Certificates</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Community</a></li>
+                        <li><a href="#">System Status</a></li>
+                        <li><a href="#">Report Abuse</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">News</a></li>
+                        <li><a href="#">Investor Relations</a></li>
+                        <li><a href="#">Corporate Social Responsibility</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                        <li><a href="#">Trademark</a></li>
+                        <li><a href="#">Copyright</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Manahil GoDaddy. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3>🛒 Shopping Cart</h3>
+            <button class="close-cart" onclick="toggleCart()">×</button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <div class="empty-cart">
+                <h3>Your cart is empty</h3>
+                <p>Add some domains to get started!</p>
+            </div>
+        </div>
+        <div class="cart-total hidden" id="cartTotal">
+            <div class="total-amount">Total: $<span id="totalAmount">0.00</span></div>
+            <button class="checkout-btn" onclick="openPaymentModal()">🔒 Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <!-- Payment Modal -->
+    <div class="modal-overlay hidden" id="paymentModal">
+        <div class="payment-modal">
+            <div class="modal-header">
+                <h2>💳 Complete Your Purchase</h2>
+                <p>Enter your payment details to complete the order</p>
+            </div>
+            
+            <div id="paymentForm">
+                <div class="order-summary">
+                    <h4>📋 Order Summary</h4>
+                    <div id="orderSummaryItems"></div>
+                    <div class="summary-total">
+                        <span>Total Amount:</span>
+                        <span>$<span id="modalTotal">0.00</span></span>
+                    </div>
+                </div>
+                
+                <form class="payment-form" id="checkoutForm">
+                    <div class="form-group">
+                        <label for="email">📧 Email Address</label>
+                        <input type="email" id="email" name="email" placeholder="your@email.com" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="fullName">👤 Full Name</label>
+                        <input type="text" id="fullName" name="fullName" placeholder="John Doe" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="cardNumber">💳 Card Number</label>
+                        <input type="text" id="cardNumber" name="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19" required>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="expiryDate">📅 Expiry Date</label>
+                            <input type="text" id="expiryDate" name="expiryDate" placeholder="MM/YY" maxlength="5" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="cvv">🔒 CVV</label>
+                            <input type="text" id="cvv" name="cvv" placeholder="123" maxlength="4" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="address">🏠 Billing Address</label>
+                        <input type="text" id="address" name="address" placeholder="123 Main Street" required>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="city">🏙️ City</label>
+                            <input type="text" id="city" name="city" placeholder="New York" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="country">🌍 Country</label>
+                            <select id="country" name="country" required>
+                                <option value="">Select Country</option>
+                                <option value="PK">🇵🇰 Pakistan</option>
+                                <option value="US">🇺🇸 United States</option>
+                                <option value="UK">🇬🇧 United Kingdom</option>
+                                <option value="CA">🇨🇦 Canada</option>
+                                <option value="AU">🇦🇺 Australia</option>
+                                <option value="IN">🇮🇳 India</option>
+                                <option value="DE">🇩🇪 Germany</option>
+                                <option value="FR">🇫🇷 France</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="payment-buttons">
+                        <button type="button" class="cancel-btn" onclick="closePaymentModal()">❌ Cancel</button>
+                        <button type="submit" class="pay-btn">💰 Complete Payment</button>
+                    </div>
+                </form>
+            </div>
+            
+            <div class="processing hidden" id="processingPayment">
+                <div class="spinner"></div>
+                <h3>Processing Payment...</h3>
+                <p>Please wait while we process your payment</p>
+                <p><strong>Do not close this window</strong></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Fake domain data with various extensions and pricing
+        const domainExtensions = [
+            { ext: '.com', price: 12.99, description: 'Most popular choice for businesses' },
+            { ext: '.net', price: 14.99, description: 'Great for tech and network companies' },
+            { ext: '.org', price: 13.99, description: 'Perfect for organizations and nonprofits' },
+            { ext: '.info', price: 9.99, description: 'Ideal for informational websites' },
+            { ext: '.biz', price: 15.99, description: 'Professional choice for businesses' },
+            { ext: '.co', price: 24.99, description: 'Modern alternative to .com' },
+            { ext: '.io', price: 49.99, description: 'Popular with tech startups' },
+            { ext: '.me', price: 19.99, description: 'Perfect for personal branding' },
+            { ext: '.pk', price: 8.99, description: 'Pakistan country domain' },
+            { ext: '.online', price: 11.99, description: 'Great for online businesses' }
+        ];
+
+        // Get DOM elements
+        const searchForm = document.getElementById('searchForm');
+        const domainInput = document.getElementById('domainInput');
+        const resultsSection = document.getElementById('resultsSection');
+        const loadingSpinner = document.getElementById('loadingSpinner');
+        const domainResults = document.getElementById('domainResults');
+        const resultsTitle = document.getElementById('resultsTitle');
+        const resultsSubtitle = document.getElementById('resultsSubtitle');
+        const successMessage = document.getElementById('successMessage');
+
+        // Shopping cart
+        let cart = [];
+
+        // Handle form submission
+        searchForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const searchTerm = domainInput.value.trim().toLowerCase();
+            
+            if (searchTerm) {
+                searchDomains(searchTerm);
+            }
+        });
+
+        // Simulate domain search
+        function searchDomains(searchTerm) {
+            resultsSection.classList.remove('hidden');
+            loadingSpinner.classList.remove('hidden');
+            domainResults.innerHTML = '';
+            successMessage.innerHTML = '';
+            
+            resultsTitle.textContent = `Results for "${searchTerm}"`;
+            resultsSubtitle.textContent = 'Choose from these available options';
+
+            setTimeout(() => {
+                loadingSpinner.classList.add('hidden');
+                displayResults(searchTerm);
+            }, 1500);
+        }
+
+        // Display fake domain results
+        function displayResults(searchTerm) {
+            const cleanSearchTerm = searchTerm.replace(/[^a-zA-Z0-9]/g, '');
+            domainResults.innerHTML = '';
+            
+            // Generate results for each extension
+            domainExtensions.forEach((domain, index) => {
+                const isAvailable = Math.random() > 0.3;
+                
+                const domainCard = document.createElement('div');
+                domainCard.className = 'domain-card';
+                
+                domainCard.innerHTML = `
+                    <div class="domain-info">
+                        <div class="domain-name">
+                            ${cleanSearchTerm}<span class="domain-extension">${domain.ext}</span>
+                        </div>
+                        <div class="domain-description">${domain.description}</div>
+                    </div>
+                    <div class="domain-pricing">
+                        <div class="domain-price">$${domain.price}</div>
+                        <div class="domain-period">per year</div>
+                    </div>
+                    <button class="add-to-cart-btn" ${!isAvailable ? 'disabled' : ''} 
+                            onclick="addToCart('${cleanSearchTerm}${domain.ext}', ${domain.price}, this)">
+                        ${isAvailable ? '🛒 Add to Cart' : '❌ Unavailable'}
+                    </button>
+                `;
+                
+                domainResults.appendChild(domainCard);
+            });
+
+            // Add alternative suggestions
+            const alternatives = generateAlternatives(cleanSearchTerm);
+            alternatives.forEach(alt => {
+                const domainCard = document.createElement('div');
+                domainCard.className = 'domain-card';
+                
+                const randomExt = domainExtensions[Math.floor(Math.random() * domainExtensions.length)];
+                
+                domainCard.innerHTML = `
+                    <div class="domain-info">
+                        <div class="domain-name">
+                            ${alt}<span class="domain-extension">${randomExt.ext}</span>
+                        </div>
+                        <div class="domain-description">Alternative suggestion</div>
+                    </div>
+                    <div class="domain-pricing">
+                        <div class="domain-price">$${randomExt.price}</div>
+                        <div class="domain-period">per year</div>
+                    </div>
+                    <button class="add-to-cart-btn" onclick="addToCart('${alt}${randomExt.ext}', ${randomExt.price}, this)">
+                        🛒 Add to Cart
+                    </button>
+                `;
+                
+                domainResults.appendChild(domainCard);
+            });
+        }
+
+        // Generate alternative domain suggestions
+        function generateAlternatives(searchTerm) {
+            const prefixes = ['get', 'my', 'the', 'best', 'top', 'pro'];
+            const suffixes = ['hub', 'zone', 'spot', 'place', 'world', 'site', 'online'];
+            
+            const alternatives = [];
+            
+            for (let i = 0; i < 2; i++) {
+                const prefix = prefixes[Math.floor(Math.random() * prefixes.length)];
+                alternatives.push(prefix + searchTerm);
+            }
+            
+            for (let i = 0; i < 2; i++) {
+                const suffix = suffixes[Math.floor(Math.random() * suffixes.length)];
+                alternatives.push(searchTerm + suffix);
+            }
+            
+            return alternatives;
+        }
+
+        // Add item to cart
+        function addToCart(domainName, price, button) {
+            const existingItem = cart.find(item => item.domain === domainName);
+            
+            if (!existingItem) {
+                cart.push({
+                    domain: domainName,
+                    price: price,
+                    id: Date.now()
+                });
+                
+                updateCartDisplay();
+                showNotification(`✅ ${domainName} added to cart!`);
+                
+                // Update button
+                button.textContent = '✅ Added to Cart';
+                button.classList.add('added-to-cart');
+                button.disabled = true;
+            }
+        }
+
+        // Remove item from cart
+        function removeFromCart(itemId) {
+            cart = cart.filter(item => item.id !== itemId);
+            updateCartDisplay();
+            showNotification('🗑️ Item removed from cart');
+        }
+
+        // Update cart display
+        function updateCartDisplay() {
+            const cartCount = document.getElementById('cartCount');
+            const cartItems = document.getElementById('cartItems');
+            const cartTotal = document.getElementById('cartTotal');
+            const totalAmount = document.getElementById('totalAmount');
+            
+            cartCount.textContent = cart.length;
+            
+            if (cart.length === 0) {
+                cartItems.innerHTML = `
+                    <div class="empty-cart">
+                        <h3>Your cart is empty</h3>
+                        <p>Add some domains to get started!</p>
+                    </div>
+                `;
+                cartTotal.classList.add('hidden');
+                return;
+            }
+            
+            const total = cart.reduce((sum, item) => sum + item.price, 0);
+            totalAmount.textContent = total.toFixed(2);
+            
+            cartItems.innerHTML = cart.map(item => `
+                <div class="cart-item">
+                    <div class="cart-item-info">
+                        <h4>🌐 ${item.domain}</h4>
+                        <div class="cart-item-price">$${item.price}/year</div>
+                    </div>
+                    <button class="remove-item" onclick="removeFromCart(${item.id})">🗑️ Remove</button>
+                </div>
+            `).join('');
+            
+            cartTotal.classList.remove('hidden');
+        }
+
+        // Toggle cart sidebar
+        function toggleCart() {
+            const cartSidebar = document.getElementById('cartSidebar');
+            cartSidebar.classList.toggle('open');
+        }
+
+        // Show notification
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.className = 'notification';
+            notification.textContent = message;
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.remove();
+            }, 3000);
+        }
+
+        // Open payment modal
+        function openPaymentModal() {
+            if (cart.length === 0) return;
+            
+            const modal = document.getElementById('paymentModal');
+            const orderSummaryItems = document.getElementById('orderSummaryItems');
+            const modalTotal = document.getElementById('modalTotal');
+            
+            const total = cart.reduce((sum, item) => sum + item.price, 0);
+            modalTotal.textContent = total.toFixed(2);
+            
+            orderSummaryItems.innerHTML = cart.map(item => `
+                <div class="summary-item">
+                    <span>🌐 ${item.domain}</span>
+                    <span>$${item.price}</span>
+                </div>
+            `).join('');
+            
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Close payment modal
+        function closePaymentModal() {
+            const modal = document.getElementById('paymentModal');
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+            
+            document.getElementById('checkoutForm').reset();
+            document.getElementById('paymentForm').classList.remove('hidden');
+            document.getElementById('processingPayment').classList.add('hidden');
+        }
+
+        // Format card inputs
+        document.addEventListener('DOMContentLoaded', function() {
+            const cardNumberInput = document.getElementById('cardNumber');
+            const expiryDateInput = document.getElementById('expiryDate');
+            const cvvInput = document.getElementById('cvv');
+            
+            cardNumberInput.addEventListener('input', function(e) {
+                let value = e.target.value.replace(/\s/g, '').replace(/[^0-9]/gi, '');
+                let formattedValue = value.match(/.{1,4}/g)?.join(' ') || value;
+                e.target.value = formattedValue;
+            });
+            
+            expiryDateInput.addEventListener('input', function(e) {
+                let value = e.target.value.replace(/\D/g, '');
+                if (value.length >= 2) {
+                    value = value.substring(0, 2) + '/' + value.substring(2, 4);
+                }
+                e.target.value = value;
+            });
+            
+            cvvInput.addEventListener('input', function(e) {
+                e.target.value = e.target.value.replace(/[^0-9]/g, '');
+            });
+        });
+
+        // Handle checkout form submission
+        document.getElementById('checkoutForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            document.getElementById('paymentForm').classList.add('hidden');
+            document.getElementById('processingPayment').classList.remove('hidden');
+            
+            setTimeout(() => {
+                processPayment();
+            }, 3000);
+        });
+
+        // Process payment
+        function processPayment() {
+            const total = cart.reduce((sum, item) => sum + item.price, 0);
+            const domains = cart.map(item => item.domain).join(', ');
+            const customerEmail = document.getElementById('email').value;
+            const customerName = document.getElementById('fullName').value;
+            
+            cart = [];
+            updateCartDisplay();
+            closePaymentModal();
+            
+            const successMessage = document.getElementById('successMessage');
+            successMessage.innerHTML = `
+                <div class="success-message">
+                    <h3>🎉 Payment Successful!</h3>
+                    <p><strong>Thank you ${customerName}!</strong></p>
+                    <p><strong>Domains purchased:</strong> ${domains}</p>
+                    <p><strong>Total paid:</strong> $${total.toFixed(2)}</p>
+                    <p><strong>Email:</strong> ${customerEmail}</p>
+                    <hr style="margin: 1rem 0; border: 1px solid #c3e6cb;">
+                    <p>✅ Your domains will be activated within 24 hours</p>
+                    <p>📧 A confirmation email has been sent to your email address</p>
+                    <p>🎯 You can now start building your website!</p>
+                </div>
+            `;
+            
+            successMessage.scrollIntoView({ behavior: 'smooth' });
+            document.getElementById('cartSidebar').classList.remove('open');
+            
+            showNotification('🎉 Purchase completed successfully!');
+        }
+
+        // Close cart when clicking outside
+        document.addEventListener('click', function(e) {
+            const cartSidebar = document.getElementById('cartSidebar');
+            const cartIcon = document.querySelector('.cart-icon');
+            
+            if (!cartSidebar.contains(e.target) && !cartIcon.contains(e.target)) {
+                cartSidebar.classList.remove('open');
+            }
+        });
+
+        // Close modal when clicking outside
+        document.getElementById('paymentModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closePaymentModal();
+            }
+        });
+
+        console.log('🚀 Manahil GoDaddy loaded successfully!');
+    </script>
+</body>
+</html>
